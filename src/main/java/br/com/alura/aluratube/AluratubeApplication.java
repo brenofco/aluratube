@@ -8,4 +8,5 @@ public class AluratubeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AluratubeApplication.class, args);
 	}
+
 }
