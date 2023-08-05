@@ -1,4 +1,6 @@
-Exploring microsservices utilizing Java + Springboot 3
+Exploring microservices utilizing Java 17 + Spring Boot3 + MySQL.
+
+The main idea behind this basic project is to exercise and explore backend programming. 
 
 Download dependencies:
 ```
@@ -8,11 +10,5 @@ Run java application:
 ```
 mvn spring-boot:run
 ```
-Java 17
-Springboot 3
-Springboot Dev Tools
-Spring Web
-Maven
-MySQL
-JPA 
-Hibernate
+
+This is still a work in progress and I guess it'll never feel actually finished. This will be used to explore technologies and programming as a whole. 
