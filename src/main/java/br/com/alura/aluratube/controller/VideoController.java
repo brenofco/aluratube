@@ -1,26 +1,43 @@
 package br.com.alura.aluratube.controller;
 
-import br.com.alura.aluratube.domain.video.DadosCadastroVideo;
+import br.com.alura.aluratube.domain.video.DataCreateVideo;
+import br.com.alura.aluratube.domain.video.Video;
+import br.com.alura.aluratube.domain.video.VideoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
 @RequestMapping("/videos")
 public class VideoController {
 
-    @GetMapping("")
-    public String carregaVideo() {
-        return "/videos/videos";
+    @Autowired
+    private VideoRepository repository;
+
+    @GetMapping
+    public String loadVideos(){
+        return "Hello";
     }
 
-    @PostMapping("")
-    public String cadastraVideo(DadosCadastroVideo dados) {
-        System.out.println(dados);
-        return "/videos/videos";
+    @PostMapping
+    @Transactional
+    public void createVideo(@RequestBody DataCreateVideo data) {
+        repository.save(new Video(data));
+        System.out.println(data);
+        System.out.println("Deu certo!");
     }
 
+    @PutMapping
+    public String carrega(){
+        return "asdfasdf";
+    }
 
+    @DeleteMapping
+    public String asdf(){
+        return "çlkj";
+    }
 }

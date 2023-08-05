@@ -1,40 +1,33 @@
 package br.com.alura.aluratube.domain.video;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity(name = "Video")
+@Table(name = "videos")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Video {
-    private String nome;
-    private Integer duracao;
-    private Integer ano;
-    private String categoria;
 
-    public String getNome() {
-        return nome;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String description;
+    private String url;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
-    public Integer getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(Integer duracao) {
-        this.duracao = duracao;
-    }
-
-    public Integer getAno() {
-        return ano;
-    }
-
-    public void setAno(Integer ano) {
-        this.ano = ano;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public Video(DataCreateVideo data) {
+        this.title = data.title();
+        this.description = data.description();
+        this.url = data.url();
+        this.category = data.category();
     }
 }
